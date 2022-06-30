@@ -101,7 +101,7 @@ print("합은 ", sum)
 ```
 
 - print()
-  정말 간단하다. 문자 그대로 print 내부의 데이터를 화면에 보여주는 함수이다. 사용법은 java 의 System.out.println() 과 유사한 느낌이다.
+  정말 간단하다. 문자 그대로 print 내부의 데이터를 화면에 보여주는 함수이다. 사용법은 java 의 System.out.print() 과 유사한 느낌이다.
 
 ```py
 print("값을 출력합니다 :", num)
