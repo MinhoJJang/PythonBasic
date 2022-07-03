@@ -115,7 +115,7 @@ msg = 'doesn't'
 SyntaxError: invalid syntax
 >>> msg = 'doesn\'t'
 >>> print(msg)
-doesn't
+doesn't'
 
 # /t : tab , /n : 줄바꿈
 >>> print("c:\temp\name")
