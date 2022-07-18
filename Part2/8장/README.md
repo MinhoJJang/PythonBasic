@@ -124,3 +124,99 @@ print(shopping_list)
 ### 요소 찾기
 
 Python에서는 리스트에 어떤 요소가 있는지 찾을 수 있는 기본 내장함수가 존재한다.
+
+```py
+heroes = [ "스파이더맨", "슈퍼맨", "헐크", "아이언맨", "배트맨" ]
+if "배트맨" in heroes :
+    print("배트맨은 영웅입니다. ")
+# 배트맨은 영웅입니다
+```
+
+`in` 연산자는 요소의 정보를 알고 있을 경우 해당 리스트 안에 요소값이 존재하는지 찾는 용도이다. 그렇다면 해당 요소값이 존재함과 동시에 몇 번째에 위치했는지 알아내려면? `index()`를 사용한다.
+
+```py
+heroes [ "스파이더맨", "슈퍼맨", "헐크", "아이언맨", "배트맨" ]
+index = heroes.index ("슈퍼맨")
+# 1
+```
+
+이때 index() 는 리스트에 없는 항목을 찾을 경우 오류가 발생한다. 따라서 먼저 리스트에 존재하는지 파악한 후 index를 찾으면 더 좋은 코드가 될 것이다.
+
+```py
+heroes = [ "스파이더맨", "슈퍼맨", '헐크", "아이언맨", "배트맨" ]
+if "슈퍼맨" in heroes :
+    index = heroes.index ("슈퍼맨")
+```
+
+### 리스트 일치 검사
+
+비교연산자 `==, !=, >, <`를 사용해 2개의 리스트를 비교할 수 있다. 리스트를 비교하기 위해서는 당연히 리스트 내부의 자료형이 일치해야 한다. 리스트를 비교하는 과정은 or 연산 `||` 과 유사한데, 첫번째 요소부터 차례대로 검사하며 검사 도중 주어진 연산자를 만족하지 않는 요소가 나오는 순간 즉시 False를 리턴한다.
+
+```py
+>>> list1 = [1,2,3]
+>>> list2 = [1,2]
+>>> list1 > list2
+True
+>>> list1 == list2
+False
+>>> list1 >= list2
+True
+>>> list1 != list2
+True
+>>> list1 < list2
+False
+>>> list2.append(3)
+>>> list1 == list2
+True
+>>> list1 <= list2
+True
+```
+
+### 리스트 정렬하기
+
+리스트를 정렬하는 데에는 두가지 방법이 존재한다.
+
+1. 리스트 객체의 `sort()` 사용
+2. `sorted()` 내장함수 사용
+
+뭐가 다르냐? `sort()`는 in-place sorting이다. 즉 원본 리스트가 변경된다. 반대로 `sorted()` 는 in-place sorting이 아니다. 즉 기존 리스트를 그대로 놔두고, 새로이 정렬된 리스트를 반환한다.
+
+```py
+>>> li = [3,2,1,5,4]
+>>> li.sort()
+>>> li
+[1, 2, 3, 4, 5]
+>>> li = [2,3,1,5,4]
+>>> new_li = sorted(li)
+>>> new_li
+[1, 2, 3, 4, 5]
+>>>
+```
+
+정렬 기능을 좀 더 활용하면 아래와 같이 문자열을 문자로 쪼개 정렬할 수도 있다.
+
+```py
+>>> li = sorted("A picture is worth a thousand words.".split(), key=str. lower)
+>>> li
+['A', 'a', 'is', 'picture', 'thousand', 'words.', 'worth']
+```
+
+또한 sort와 sorted는 모두 bool형의 reverse 매개변수를 갖는다. 즉, `reverse = True` 일경우 역순 정렬이 가능하다.
+
+```py
+>>> li = sorted([5, 2, 3, 1, 4], reverse=True)
+>>> li
+[5, 4, 3, 2, 1]
+```
+
+### 문자열을 리스트로
+
+`split()` 을 사용하면 된다. 이때 split 내부 파라미터에 어떤 값을 기준으로 나눌 것인지 알려주면 된다.
+
+```py
+>>> statement = "Where there is a will, there is a way"
+>>> statement.split()
+['Where', 'there', 'is', 'a', 'will,', 'there', 'is', 'a', 'way']
+>>> statement.split(",")
+['Where there is a will', ' there is a way']
+```
