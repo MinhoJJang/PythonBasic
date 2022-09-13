@@ -214,7 +214,7 @@ print(list1.index ("blue"))
 2
 ```
 
-위 예제는 가장 기본적인 탐색 방법으로, index를 활용해 배열에서 가장 처음으로 만나는 'blue'의 위치를 찾는 방법이다. 그러나 우리가 항상 index을 사용해서 search를 할 수는 없는 법이다. 그래서 순차 탐색 코드를 간단하게 만들어 보자
+위 예제는 가장 기본적인 탐색 방법으로, index를 활용해 배열에서 가장 처음으로 만나는 'blue'의 위치를 찾는 방법이다. 그러나 우리가 항상 index을 사용해서 search를 할 수는 없는 법이다. 그러므로 간단하게 순차 탐색 코드를 간단하게 만들어 보자
 
 ```py
 def linear_Search(aList, key):
@@ -225,7 +225,7 @@ def linear_Search(aList, key):
             return i
     return -1
     # 키가 발견되지 않고 반복이 종료되었으면 -1을 반환한다.
-numbers = [ 10, 20, 30, 40, 50, 60, 70, 80, 90 ]
+numbers = [ 10, 20, 30, 40, 30, 60, 70, 30, 90 ]
 position = linear_Search(numbers, 30)
 if position != -1:
     print("탐색 성공 위치 =", position)
@@ -233,4 +233,22 @@ else:
     print("탐색 실패 ")
 
 탐색 성공 위치 = 2
+```
+
+위 코드는 간단하게 원하는 숫자의 위치를 찾을 수 있다는 장점이 있지만, 해당 숫자 위치를 모두 찾지는 못한다. `numbers = [ 10, 20, 30, 40, 30, 60, 70, 30, 90 ]` 여기서 30의 위치는 3개가 있지만 위 코드상으로는 맨 처음 30의 위치인 `2` 만 나오게 된다. 그렇다면 30의 위치를 모두 찾으려면 어떻게 해야 할까?
+
+여러 개의 위치가 존재하므로, 빈 리스트를 활용하면 좋을 듯 하다.
+
+```py
+numbers = [10, 20, 30, 30, 40, 50, 30]
+idx = []
+findingNum = 30
+
+for i in range(len(numbers)):
+    if(numbers[i] == findingNum):
+        idx.append(i)
+
+print(idx)
+
+[2, 3, 6]
 ```
